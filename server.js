@@ -10,7 +10,7 @@ const challengeTimeout = parseInt(process.env.CHALLENGE_TIMEOUT || "60")
 const allowPonder = process.env.ALLOW_PONDER == "true"
 const logApi = process.env.LOG_API == "true"
 const useBook = process.env.USE_BOOK == "true"
-const bookDepth = parseInt(process.env.BOOK_DEPTH || "20")
+const bookDepth = parseInt(process.env.BOOK_DEPTH || "40")
 const bookSpread = parseInt(process.env.BOOK_SPREAD || "4")
 const bookRatings = (process.env.BOOK_RATINGS || "2200,2500").split(",")
 const bookSpeeds = (process.env.BOOK_SPEEDS || "blitz,rapid").split(",")
@@ -280,8 +280,8 @@ function playGame(gameId){
     .setoption("Threads", engineThreads)
     .setoption("Move Overhead", engineMoveOverhead)
 
-    setTimeout(_=>lichessUtils.gameChat(gameId, "all", `${lichessBotName} running on https://github.com/hyperchessbot/hyperbot`), 2000)
-    setTimeout(_=>lichessUtils.gameChat(gameId, "all", `Good luck !`), 4000)
+    //setTimeout(_=>lichessUtils.gameChat(gameId, "all", `${lichessBotName} running on https://github.com/hyperchessbot/hyperbot`), 2000)
+    //setTimeout(_=>lichessUtils.gameChat(gameId, "all", `Good luck !`), 4000)
 
     playingGameId = gameId
 
@@ -387,7 +387,7 @@ function streamEvents(){
 
                 engine.stop()
 
-                setTimeout(_=>lichessUtils.gameChat(gameId, "all", `Good game !`), 2000)
+                //setTimeout(_=>lichessUtils.gameChat(gameId, "all", `Good game !`), 2000)
             }
         }         
     }})
